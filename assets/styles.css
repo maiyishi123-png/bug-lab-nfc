@@ -1146,6 +1146,7 @@ body.debug-grid::before { display: block; }
 
   .closing-section h2 {
     max-width: none;
+    line-height: 1.06;
   }
 
   html:lang(en) .closing-section h2 {
