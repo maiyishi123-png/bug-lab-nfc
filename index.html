@@ -189,7 +189,9 @@
         box-shadow: var(--shadow);
       }
       .close { display: block; margin-left: auto; padding: 9px 10px; border: 1px solid var(--border); background: transparent; font-size: 12px; font-weight: 900; text-transform: uppercase; }
-      .qr { display: grid; width: min(62vw, 260px); aspect-ratio: 1 / 1; place-items: center; margin: var(--space-md) auto; border: 2px solid var(--border); background: #fff; font-size: 28px; font-weight: 900; text-align: center; }
+      .qr-frame { margin: var(--space-md) auto; padding: 10px; border: 2px solid var(--border); background: var(--background); }
+      .qr-label { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 8px; color: var(--muted); font-size: 10px; font-weight: 900; text-transform: uppercase; }
+      .qr-image { display: block; width: min(62vw, 270px); aspect-ratio: 1 / 1; border: 2px solid var(--border); background: #fff; object-fit: contain; }
       .sheet p, .sheet dl, .sheet dd { margin: 0; }
       .sheet p { font-size: 21px; font-weight: 900; }
       .sheet dl { display: grid; grid-template-columns: 88px 1fr; gap: var(--space-sm); align-items: center; margin: var(--space-md) 0; }
@@ -243,7 +245,7 @@ WEIRD THINGS.</h1>
           <p>加微信、看小红书 / 抖音，或者去 Instagram、TikTok、MakerWorld 找到更多作品。</p>
         </div>
         <div class="social-grid">
-          <button class="social-card" type="button" data-open-wechat><span class="mark wx">WX</span><span class="social-text"><span>WeChat</span><span>PLACEHOLDER</span></span></button>
+          <button class="social-card" type="button" data-open-wechat><span class="mark wx">WX</span><span class="social-text"><span>WeChat</span><span>BUG_LAB</span></span></button>
           <a class="social-card" href="https://example.com/xiaohongshu"><span class="mark red">RED</span><span class="social-text"><span>Xiaohongshu</span><span>PLACEHOLDER</span></span></a>
           <a class="social-card" href="https://example.com/douyin"><span class="mark">♪</span><span class="social-text"><span>Douyin</span><span>PLACEHOLDER</span></span></a>
           <a class="social-card" href="https://example.com/instagram"><span class="mark ig">IG</span><span class="social-text"><span>Instagram</span><span>@placeholder</span></span></a>
@@ -277,9 +279,9 @@ WEIRD THINGS.</h1>
     <div class="sheet-layer" id="wechat-sheet">
       <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="wechat-title">
         <button class="close" type="button" data-close-wechat>Close</button>
-        <div class="qr">WECHAT QR<br />PLACEHOLDER</div>
+        <div class="qr-frame"><div class="qr-label"><span>WECHAT QR</span><span>BUG LAB</span></div><img class="qr-image" src="wechat-qr.png" alt="BUG_LAB WeChat QR code" /></div>
         <p id="wechat-title">添加微信 / ADD WECHAT</p>
-        <dl><dt>微信号</dt><dd id="wechat-id">PLACEHOLDER</dd></dl>
+        <dl><dt>微信号</dt><dd id="wechat-id">BUG_LAB</dd></dl>
         <button class="copy-button" type="button" data-copy-wechat>复制微信号 / COPY WECHAT ID</button>
       </section>
     </div>
@@ -303,3 +305,4 @@ WEIRD THINGS.</h1>
     </script>
   </body>
 </html>
+
