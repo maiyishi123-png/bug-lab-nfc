@@ -1121,6 +1121,35 @@ body.debug-grid::before { display: block; }
     margin-top: var(--space-1);
   }
 
+  .process-step {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: var(--space-1);
+    align-items: baseline;
+  }
+
+  .process-no {
+    grid-column: 1;
+  }
+
+  .process-copy {
+    display: contents;
+  }
+
+  .process-copy h3 {
+    grid-column: 2;
+    color: var(--color-blue);
+    font-family: var(--font-display-en), var(--font-display-zh);
+    font-size: var(--t3);
+    font-weight: 900;
+    line-height: 0.9;
+  }
+
+  .step-statement,
+  .step-body {
+    grid-column: 1 / -1;
+  }
+
   .platform-action {
     grid-template-columns: 74px minmax(0, 1fr) 42px;
     min-height: 88px;
