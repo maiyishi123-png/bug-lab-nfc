@@ -33,7 +33,7 @@ window.BAKU_I18N_ZH = {
     detailTitle: "限时共创计划",
     detailIntro: "BAKU想和大家探讨共创互惠方案，目的是让我们的创意都获得更多的展示机会。同时降低IP设计师的开模打样等生产成本，用BAKU擅长的3D打印工艺，达到最小可行性产品。",
     heroMeta: "LIMITED COLLAB / 2026",
-    heroSecondary: "BAKU × IP设计师",
+    heroSecondary: "BAKU ×<span class=\"secondary-line\">IP设计师</span>",
     processTitle: "共创计划<br />7个可行性步骤",
     processTitleEn: "7-STEP CO-CREATION PROCESS",
     action: "联系 BAKU<br />聊聊共创",
@@ -104,7 +104,7 @@ window.BAKU_I18N_ZH = {
         description: "3D 打印、结构测试、制作过程与小批量实体化实验。记录把想法做成物件的路径。",
       },
     },
-    open: "打开平台",
+    open: "点击跳转链接",
   },
   closing: {
     label: "04 / CONNECT",
@@ -114,7 +114,6 @@ window.BAKU_I18N_ZH = {
   },
   footer: {
     location: "广州 / 中国",
-    fontTest: "中文字体测试",
     backHome: "返回首页",
   },
 };
