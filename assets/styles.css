@@ -1082,11 +1082,19 @@ body.debug-grid::before { display: block; }
   }
 
   .collab-copy .eyebrow {
-    margin-top: var(--space-3);
+    margin-top: var(--space-1);
     font-family: var(--font-display-zh);
     font-size: clamp(2.6rem, 13.5vw, 3.5rem);
     line-height: 0.98;
     text-transform: none;
+  }
+
+  .collab-copy .outline-label {
+    margin-bottom: 0;
+  }
+
+  .collab-copy .manifesto {
+    margin-top: var(--space-2);
   }
 
   .step-statement {
