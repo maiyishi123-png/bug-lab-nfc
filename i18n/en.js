@@ -1,0 +1,63 @@
+window.BAKU_I18N_EN = {
+  seo: {
+    title: "BAKU - Ideas Into Experiences",
+    description: "BAKU is an independent designer based in Guangzhou, focused on 3D printing, physical making, interaction, experience, and co-creation.",
+  },
+  identity: {
+    role: "INDEPENDENT DESIGNER",
+    specialty: "3D PRINTING · PHYSICAL MAKING",
+    exploring: "INTERACTION · EXPERIENCE<br />PHYGITAL · CO-CREATION",
+    base: "GUANGZHOU · CHINA",
+    chain: "DESIGN → PROTOTYPE → PRODUCTION → MARKET",
+  },
+  connect: {
+    unavailable: "TO BE UPDATED",
+    copied: "WeChat ID copied",
+    openWechat: "Open WeChat QR",
+    items: {
+      whatsapp: { title: "WHATSAPP", note: "Open conversation" },
+      wechat: { title: "WECHAT", note: "QR code and ID" },
+      email: { title: "EMAIL", note: "Send an email" },
+    },
+  },
+  collab: {
+    homeHeadline: "A limited designer-to-designer collaboration call.",
+    flow: "IP → PRODUCT → INTERACTION → EXPERIENCE",
+    tags: "SMALL BATCH / LOW MOQ / CO-DEVELOP / CO-SELL",
+    cta: "VIEW COLLAB CALL →",
+    closed: "COLLABORATION / CURRENTLY CLOSED",
+    detailTitle: "BAKU × DESIGNERS",
+    detailIntro: "This is not a supplier page. It is an invitation to designers, independent IPs, and design brands who want to turn ideas into physical products people can touch and experience.",
+    bringTitle: "You bring",
+    bringItems: ["IP", "Character", "Visual language", "Story", "Idea"],
+    bakuTitle: "BAKU brings",
+    bakuItems: ["Product design", "3D printing", "Prototyping", "Physical making", "Small-batch production", "Interaction exploration"],
+    processTitle: "Co-development",
+    process: "Idea → Concept → Design → Prototype → Production → Launch",
+    modelTitle: "Commercial model",
+    model: "Co-sell / Revenue share / Small-batch wholesale / Limited release / Offline event / Joint launch",
+    principleTitle: "IP remains with its creator.",
+    principle: "Before each project starts, we confirm design output, production rights, sales rights, costs, revenue, and collaboration timeline together.",
+    friendlyTitle: "A lighter first attempt",
+    friendly: "Small batches, fast testing, flexible production, and co-selling can lower the risk of a first physical-product experiment. It is not zero cost, and it is not zero risk.",
+    ending: "LET'S MAKE SOMETHING<br />PEOPLE WANT TO TOUCH.",
+    action: "LET'S COLLABORATE →",
+  },
+  work: {
+    title: "MY WORK",
+    follow: "Choose what you want to follow, then choose where.",
+    kamabo: {
+      title: "01 / KAMABO LAB",
+      name: "KAMABO LAB",
+      keywords: "ORIGINAL IP / CHARACTERS / PRODUCTS / OBJECTS",
+    },
+    buglab: {
+      title: "02 / BUG LAB",
+      name: "BUG LAB",
+      keywords: "3D PRINTING / MAKING / EXPERIMENTS / PROCESS",
+    },
+  },
+  footer: {
+    location: "GUANGZHOU / CHINA",
+  },
+};

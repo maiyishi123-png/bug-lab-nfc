@@ -1,0 +1,63 @@
+window.BAKU_I18N_ZH = {
+  seo: {
+    title: "BAKU - Ideas Into Experiences",
+    description: "BAKU 是一名位于广州的独立设计师，专注 3D 打印、实体创造、交互、体验与共创。",
+  },
+  identity: {
+    role: "独立设计师",
+    specialty: "3D 打印 · 实体创造",
+    exploring: "交互 · 体验<br />虚实融合 · 共创",
+    base: "广州 · 中国",
+    chain: "设计 → 打样 → 生产 → 市场",
+  },
+  connect: {
+    unavailable: "待更新",
+    copied: "已复制微信号",
+    openWechat: "打开微信二维码",
+    items: {
+      wechat: { title: "WECHAT / 微信", note: "扫码或复制微信号" },
+      whatsapp: { title: "WHATSAPP", note: "直接打开对话" },
+      email: { title: "EMAIL", note: "发送邮件" },
+    },
+  },
+  collab: {
+    homeHeadline: "找一些有趣的 IP，<br />一起把它们变成真的。",
+    flow: "IP → 产品 → 互动 → 体验",
+    tags: "小批量 / 低起订 / 联合研发 / 共同销售",
+    cta: "查看共创计划 →",
+    closed: "COLLABORATION / CURRENTLY CLOSED",
+    detailTitle: "BAKU × DESIGNERS",
+    detailIntro: "这不是寻找客户，而是寻找有想法的设计师、独立 IP 与设计品牌，一起把想法变成可以触摸、可以体验的实体产品。",
+    bringTitle: "你带来",
+    bringItems: ["IP", "角色", "视觉语言", "世界观", "创意"],
+    bakuTitle: "BAKU 带来",
+    bakuItems: ["产品设计", "3D 打印", "打样", "实体化", "小批量生产", "互动体验探索"],
+    processTitle: "共同完成",
+    process: "创意 → 概念 → 设计 → 打样 → 生产 → 发布",
+    modelTitle: "合作方式",
+    model: "共同销售 / 分佣 / 小批量拿货 / 限定发售 / 线下活动 / 联合发布",
+    principleTitle: "IP 仍然属于它的创作者。",
+    principle: "具体项目开始前，共同确认设计成果、生产权、销售权、成本、收益与合作周期。规则透明，尊重创作者。",
+    friendlyTitle: "更轻的第一次尝试",
+    friendly: "用小批量、快速测试、灵活生产和共同销售，降低第一次尝试实体产品的风险。不承诺零成本，也不承诺零风险。",
+    ending: "LET'S MAKE SOMETHING<br />PEOPLE WANT TO TOUCH.",
+    action: "LET'S COLLABORATE →",
+  },
+  work: {
+    title: "我的创作",
+    follow: "选择想关注的创作账号，再选择平台。",
+    kamabo: {
+      title: "01 / KAMABO LAB",
+      name: "KAMABO LAB",
+      keywords: "原创 IP / 角色 / 产品 / 物件",
+    },
+    buglab: {
+      title: "02 / BUG LAB",
+      name: "BUG 造物实验室",
+      keywords: "3D 打印 / 制作 / 实验 / 过程",
+    },
+  },
+  footer: {
+    location: "广州 / 中国",
+  },
+};

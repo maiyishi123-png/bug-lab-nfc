@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BAKU × DESIGNERS</title>
+    <meta name="description" content="A limited designer-to-designer collaboration call by BAKU." />
+    <meta property="og:title" content="BAKU × DESIGNERS" />
+    <meta property="og:description" content="Let's make something people want to touch." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-page="collab">
+    <main class="page-shell">
+      <header class="site-top" aria-label="BAKU digital identity">
+        <a class="top-mark" href="/" aria-label="BAKU home">
+          <span>BAKU</span>
+          <span>DIGITAL ID</span>
+        </a>
+        <nav class="lang-switch" aria-label="Language">
+          <span>LANG</span>
+          <button type="button" data-lang="zh">中</button>
+          <button type="button" data-lang="en">EN</button>
+        </nav>
+      </header>
+
+      <div data-collab-detail></div>
+
+      <footer class="site-footer">
+        <span>BAKU © 2026</span>
+        <span data-i18n="footer.location">GUANGZHOU / CHINA</span>
+      </footer>
+    </main>
+
+    <div class="sheet-layer" data-sheet-layer aria-hidden="true">
+      <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="wechat-title" tabindex="-1">
+        <button class="sheet-close" type="button" data-close-sheet aria-label="Close">CLOSE</button>
+        <p class="index-label">QR CODE / WECHAT</p>
+        <h2 id="wechat-title">WECHAT</h2>
+        <div class="qr-wrap">
+          <img data-wechat-qr alt="WeChat QR code for BAKU" loading="lazy" />
+        </div>
+        <dl class="id-list">
+          <dt>WECHAT ID</dt>
+          <dd data-wechat-id>BUG_LAB</dd>
+        </dl>
+        <button class="primary-action" type="button" data-copy-wechat>COPY ID</button>
+        <p class="copy-feedback" data-copy-feedback aria-live="polite"></p>
+      </section>
+    </div>
+
+    <script src="/config/profile.js"></script>
+    <script src="/i18n/zh.js"></script>
+    <script src="/i18n/en.js"></script>
+    <script src="/assets/site.js"></script>
+  </body>
+</html>
