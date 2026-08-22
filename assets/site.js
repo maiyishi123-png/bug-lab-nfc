@@ -20,34 +20,36 @@
     makerworld: { short: "MW", color: "#00a3ff" },
   };
 
+  const imageBaseUrl = "https://baku-assets.oss-cn-guangzhou.aliyuncs.com/baku/";
+
   const gallerySets = {
     collab: { label: "REAL WORK", total: 4 },
     kamabo: {
       label: "KAMABO LAB",
       images: [
-        "/assets/images/kamabo-01.png",
-        "/assets/images/kamabo-02.jpg",
-        "/assets/images/kamabo-03.jpg",
-        "/assets/images/kamabo-04.jpg",
-        "/assets/images/kamabo-05.jpg",
-        "/assets/images/kamabo-06.jpg",
-        "/assets/images/kamabo-07.jpg",
-        "/assets/images/kamabo-08.jpg",
-        "/assets/images/kamabo-09.jpg",
+        "kamabo-01.png",
+        "kamabo-02.jpg",
+        "kamabo-03.jpg",
+        "kamabo-04.jpg",
+        "kamabo-05.jpg",
+        "kamabo-06.jpg",
+        "kamabo-07.jpg",
+        "kamabo-08.jpg",
+        "kamabo-09.jpg",
       ],
     },
     buglab: {
       label: "BUG LAB",
       images: [
-        "/assets/images/buglab-01.jpeg",
-        "/assets/images/buglab-02.jpg",
-        "/assets/images/buglab-03.jpg",
-        "/assets/images/buglab-04.jpg",
-        "/assets/images/buglab-05.jpg",
-        "/assets/images/buglab-06.jpg",
-        "/assets/images/buglab-07.jpg",
-        "/assets/images/buglab-08.jpg",
-        "/assets/images/buglab-09.jpg",
+        "buglab-01.jpeg",
+        "buglab-02.jpg",
+        "buglab-03.jpg",
+        "buglab-04.jpg",
+        "buglab-05.jpg",
+        "buglab-06.jpg",
+        "buglab-07.jpg",
+        "buglab-08.jpg",
+        "buglab-09.jpg",
       ],
     },
   };
@@ -205,9 +207,14 @@
     }
     return `<article class="gallery-slide gallery-image-slide">
       <figure class="gallery-image-frame">
-        <img src="${escapeAttr(image)}" alt="${escapeAttr(data.label)} work ${pad(no)}" loading="lazy" decoding="async" />
+        <img src="${escapeAttr(resolveImageUrl(image))}" alt="${escapeAttr(data.label)} work ${pad(no)}" loading="lazy" decoding="async" />
       </figure>
     </article>`;
+  }
+
+  function resolveImageUrl(image) {
+    if (/^https?:\/\//.test(image)) return image;
+    return `${imageBaseUrl}${image}`;
   }
 
   function wireGallery(root, total) {
