@@ -224,8 +224,8 @@
     root.innerHTML = `
       <section class="collab-detail-hero large-frame">
         <p class="outline-label">00 / ${t("collab.heroMeta")}</p>
-        <p class="collab-secondary">${t("collab.heroSecondary")}</p>
         <h1>${t("collab.detailTitle")}</h1>
+        <p class="collab-secondary">${t("collab.heroSecondary")}</p>
         <p class="detail-intro">${t("collab.detailIntro")}</p>
       </section>
       <section class="process-section" aria-labelledby="process-title">

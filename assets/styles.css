@@ -726,28 +726,23 @@ html:lang(en) .hero-meta dd span {
 }
 
 .collab-detail-hero h1 {
-  max-width: 9ch;
-  margin-top: var(--space-2);
+  max-width: none;
+  margin-top: 0;
   font-family: var(--font-display-zh);
-  font-size: var(--t2);
+  color: var(--color-blue);
+  font-size: var(--t3);
+  font-weight: 900;
   line-height: 0.98;
 }
 
 .collab-secondary {
   margin-top: var(--space-2);
   color: var(--color-ink);
-  font-size: var(--t4);
-}
-
-html:lang(en) .collab-secondary {
   font-family: var(--font-display-en);
-}
-
-.collab-detail-hero h1 {
-  max-width: 8ch;
-  font-family: var(--font-display-zh);
-  font-size: var(--t2);
+  font-size: var(--t3);
+  font-weight: 900;
   line-height: 0.98;
+  text-transform: uppercase;
 }
 
 .detail-intro {
@@ -779,6 +774,11 @@ html:lang(zh-CN) .process-section h2 {
   font-family: var(--font-display-en);
   font-size: var(--t7);
   font-weight: 900;
+}
+
+.process-title-en,
+.step-en {
+  display: none;
 }
 
 .process-journal {
