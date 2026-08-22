@@ -1132,6 +1132,10 @@ body.debug-grid::before { display: block; }
     padding-inline: var(--space-3);
   }
 
+  .project-gallery {
+    aspect-ratio: 4 / 3;
+  }
+
   .gallery-slide strong {
     font-size: var(--t4);
   }
