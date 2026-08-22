@@ -11,7 +11,7 @@
     whatsapp: { short: "WA", color: "#25d366" },
     email: { short: "@", color: "#2146d8" },
     xiaohongshu: { short: "RED", color: "#ff2442" },
-    douyin: { short: "DY", color: "#111111" },
+    douyin: { short: "DY", color: "#111111", ink: "#ffffff" },
     instagram: { short: "IG", color: "#e4405f" },
     tiktok: { short: "TK", color: "#00f2ea" },
     makerworld: { short: "MW", color: "#00a3ff" },
@@ -118,7 +118,7 @@
       ? `href="${escapeAttr(href)}" ${type === "email" ? "" : 'target="_blank" rel="noopener"'}`
       : `${isWechat ? "data-open-wechat" : 'disabled aria-disabled="true"'}`;
     return `<${tag} class="platform-action ${disabled ? "is-disabled" : ""}" ${attrs}>
-      <span class="platform-color" style="--platform-color:${platformMeta[type].color}">${platformMeta[type].short}</span>
+      <span class="platform-color" style="--platform-color:${platformMeta[type].color};--platform-ink:${platformMeta[type].ink || "#10110f"}">${platformMeta[type].short}</span>
       <span class="platform-text"><small>${item.meta}</small><strong>${item.title}</strong><em>${disabled ? t("find.unavailable") : item.note}</em></span>
       <b aria-hidden="true">→</b>
     </${tag}>`;
@@ -197,12 +197,12 @@
     const disabled = !url;
     if (disabled) {
       return `<button class="platform-action social-action is-disabled" type="button" disabled aria-disabled="true">
-        <span class="platform-color" style="--platform-color:${platformMeta[platform].color}">${platformMeta[platform].short}</span>
+        <span class="platform-color" style="--platform-color:${platformMeta[platform].color};--platform-ink:${platformMeta[platform].ink || "#10110f"}">${platformMeta[platform].short}</span>
         <span class="platform-text"><small>${label}</small><strong>${label}</strong><em>${t("find.unavailable")}</em></span>
       </button>`;
     }
     return `<a class="platform-action social-action" href="${escapeAttr(url)}" target="_blank" rel="noopener">
-      <span class="platform-color" style="--platform-color:${platformMeta[platform].color}">${platformMeta[platform].short}</span>
+      <span class="platform-color" style="--platform-color:${platformMeta[platform].color};--platform-ink:${platformMeta[platform].ink || "#10110f"}">${platformMeta[platform].short}</span>
       <span class="platform-text"><small>${label}</small><strong>${label}</strong><em>${t("work.open")}</em></span>
       <b aria-hidden="true">→</b>
     </a>`;

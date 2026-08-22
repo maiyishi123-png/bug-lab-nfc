@@ -384,7 +384,7 @@ html:lang(en) .hero-meta dd span {
   margin-left: var(--space-2);
   border: var(--border) solid var(--color-line);
   background: var(--platform-color, var(--color-blue));
-  color: var(--color-ink);
+  color: var(--platform-ink, var(--color-ink));
   font-family: var(--font-display-en);
   font-size: 0.95rem;
   font-weight: 900;
