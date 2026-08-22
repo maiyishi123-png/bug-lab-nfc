@@ -107,7 +107,7 @@ window.BAKU_I18N_ZH = {
     open: "打开平台",
   },
   closing: {
-    label: "04 / 联系 / CONNECT",
+    label: "04 / CONNECT",
     title: "有想法？<br />一起做点<br />有意思的。",
     en: "HAVE AN IDEA?<br />LET'S MAKE SOMETHING TOGETHER.",
     cta: "联系<br />BAKU",
