@@ -100,7 +100,7 @@ window.BAKU_I18N_ZH = {
       },
       buglab: {
         label: "02 / BUG LAB",
-        title: "BUG<br />造物实验室",
+        title: "BUG造物实验室",
         description: "3D 打印、结构测试、制作过程与小批量实体化实验。记录把想法做成物件的路径。",
       },
     },
@@ -109,7 +109,7 @@ window.BAKU_I18N_ZH = {
   closing: {
     label: "04 / CONNECT",
     title: "有想法？<br />一起做点<br />有意思的。",
-    en: "HAVE AN IDEA?<br />LET'S MAKE SOMETHING TOGETHER.",
+    en: "",
     cta: "联系<br />BAKU",
   },
   footer: {

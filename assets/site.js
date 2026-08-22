@@ -180,15 +180,14 @@
     const account = profile.accounts[key];
     const order = key === "kamabo"
       ? ["xiaohongshu", "douyin", "instagram", "tiktok"]
-      : ["xiaohongshu", "douyin", "makerworld", "instagram", "tiktok"];
+      : ["xiaohongshu", "douyin", "instagram", "tiktok"];
     return `<article class="project-row">
-      <div data-gallery="${key}" class="gallery-block large-frame project-gallery" aria-label="${stripTags(project.title)} gallery"></div>
       <div class="project-info">
-        <p class="outline-label">${project.label}</p>
         <h3>${project.title}</h3>
         <p>${project.description}</p>
-        <div class="social-stack">${order.map((platform) => socialAction(account.socials[platform], platform)).join("")}</div>
       </div>
+      <div data-gallery="${key}" class="gallery-block large-frame project-gallery" aria-label="${stripTags(project.title)} gallery"></div>
+      <div class="social-stack">${order.map((platform) => socialAction(account.socials[platform], platform)).join("")}</div>
     </article>`;
   }
 

@@ -6,7 +6,7 @@ window.BAKU_I18N_EN = {
   identity: {
     role: "INDEPENDENT DESIGNER",
     roleEn: "",
-    statement: "Ideas join<br />living<br />experiences",
+    statement: "TURN IDEAS INTO<br />LIVING EXPERIENCES.",
     statementEn: "",
     meta: {
       specialized: { label: "SPECIALIZED", value: "3D PRINTING · PHYSICAL MAKING" },
@@ -108,7 +108,7 @@ window.BAKU_I18N_EN = {
   },
   closing: {
     label: "04 / CONNECT",
-    title: "Have an idea?<br />Let's make<br />something<br />interesting.",
+    title: "Have an idea? Let's make<br />something interesting.",
     en: "",
     cta: "Contact<br />BAKU",
   },
