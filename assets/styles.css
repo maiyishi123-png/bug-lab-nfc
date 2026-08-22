@@ -1150,7 +1150,7 @@ body.debug-grid::before { display: block; }
   }
 
   .closing-section {
-    row-gap: 14px;
+    row-gap: 22px;
   }
 
   .closing-action {
