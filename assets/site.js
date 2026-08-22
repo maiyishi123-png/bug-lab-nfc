@@ -205,7 +205,7 @@
     }
     return `<article class="gallery-slide gallery-image-slide">
       <figure class="gallery-image-frame">
-        <img src="${escapeAttr(image)}" alt="${escapeAttr(data.label)} work ${pad(no)}" loading="lazy" />
+        <img src="${escapeAttr(image)}" alt="${escapeAttr(data.label)} work ${pad(no)}" loading="lazy" decoding="async" />
       </figure>
     </article>`;
   }
