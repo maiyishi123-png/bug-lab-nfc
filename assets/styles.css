@@ -1036,6 +1036,11 @@ body.debug-grid::before { display: block; }
 
   .process-step {
     padding: var(--space-4) 0;
+    row-gap: 6px;
+  }
+
+  .process-copy h3 {
+    margin-top: 0;
   }
 }
 
