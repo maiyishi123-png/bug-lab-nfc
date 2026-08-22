@@ -33,14 +33,14 @@ window.BAKU_I18N_ZH = {
     detailTitle: "限时共创计划",
     detailIntro: "BAKU想和大家探讨共创互惠方案，目的是让我们的创意都获得更多的展示机会。同时降低IP设计师的开模打样等生产成本，用BAKU擅长的3D打印工艺，达到最小可行性产品。",
     heroMeta: "LIMITED COLLAB / 2026",
-    heroSecondary: "BAKU × 你",
+    heroSecondary: "BAKU × IP设计师",
     processTitle: "共创计划<br />7个可行性步骤",
     processTitleEn: "7-STEP CO-CREATION PROCESS",
     action: "联系 BAKU<br />聊聊共创",
     steps: [
       {
         no: "01",
-        title: "IP 与角色",
+        title: "IP与角色",
         en: "IP & CHARACTER",
         statement: "为你的IP挖掘出更多产品方向",
         body: "角色、视觉语言、世界观与已有设定由你提供。你最了解自己的 IP，所以原有角色设定与核心视觉始终由你主导。IP 始终属于原创作者。",

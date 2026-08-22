@@ -357,6 +357,17 @@ html:lang(en) .hero-meta dd span {
   line-height: 1.4;
 }
 
+.section-copy,
+.manifesto,
+.project-info p:not(.outline-label),
+.detail-intro,
+.step-statement,
+.step-body,
+.font-intro {
+  text-align: justify;
+  text-align-last: left;
+}
+
 .find-actions {
   display: grid;
   align-content: end;
@@ -1127,7 +1138,7 @@ body.debug-grid::before { display: block; }
 
   .process-step {
     grid-template-columns: auto minmax(0, 1fr);
-    column-gap: 2px;
+    column-gap: 8px;
     row-gap: var(--space-1);
     align-items: baseline;
   }
