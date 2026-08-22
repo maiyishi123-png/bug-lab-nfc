@@ -1069,7 +1069,7 @@ body.debug-grid::before { display: block; }
   }
 
   .outline-label {
-    margin-bottom: var(--space-1);
+    margin-bottom: 14px;
   }
 
   .section-copy,
@@ -1105,7 +1105,7 @@ body.debug-grid::before { display: block; }
   }
 
   .collab-copy .outline-label {
-    margin-bottom: 0;
+    margin-bottom: 14px;
   }
 
   .collab-copy .manifesto {
@@ -1150,7 +1150,7 @@ body.debug-grid::before { display: block; }
   }
 
   .closing-section {
-    row-gap: var(--space-1);
+    row-gap: 14px;
   }
 
   .closing-action {
