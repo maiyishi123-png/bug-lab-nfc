@@ -54,6 +54,7 @@
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
     document.querySelectorAll("[data-lang]").forEach((button) => {
       const active = button.dataset.lang === locale;
+      button.textContent = locale === "en" && button.dataset.lang === "zh" ? "ZH" : button.dataset.lang === "zh" ? "中" : "EN";
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", active ? "true" : "false");
     });
@@ -209,8 +210,8 @@
 
   function platformLabel(platform) {
     return {
-      xiaohongshu: "小红书 / RED",
-      douyin: "抖音 / DOUYIN",
+      xiaohongshu: "XIAOHONGSHU",
+      douyin: "DOUYIN",
       instagram: "INSTAGRAM",
       tiktok: "TIKTOK",
       makerworld: "MAKERWORLD",
@@ -224,30 +225,30 @@
     root.innerHTML = `
       <section class="collab-detail-hero large-frame">
         <p class="outline-label">00 / ${t("collab.heroMeta")}</p>
-        <h1>${t("collab.detailTitle")}</h1>
         <p class="collab-secondary">${t("collab.heroSecondary")}</p>
+        <h1>${t("collab.detailTitle")}</h1>
         <p class="detail-intro">${t("collab.detailIntro")}</p>
       </section>
       <section class="process-section" aria-labelledby="process-title">
         <p class="outline-label">01 / PROCESS FIELD NOTES</p>
-        <h2 id="process-title">7-STEP<br />CO-CREATION</h2>
+        <h2 id="process-title">${t("collab.processTitle")}</h2>
+        <p class="process-title-en">${t("collab.processTitleEn")}</p>
         <div class="process-journal">
           ${steps.map(stepTemplate).join("")}
         </div>
       </section>
       <section class="detail-end large-frame">
         <p class="outline-label">02 / CONTACT</p>
-        <h2>${locale === "zh" ? "有 IP 想做成实体？" : "Have an IP to make physical?"}</h2>
-        <button class="full-action closing-action" type="button" data-open-wechat>
-          <span>${t("collab.action")}</span>
+        <h2>${locale === "zh" ? "有想法想聊聊？" : "Have an idea to talk through?"}</h2>
+        <a class="full-action closing-action" href="/#find-baku">
+          <span class="cta-copy">${t("collab.action")}</span>
           <b aria-hidden="true">→</b>
-        </button>
+        </a>
       </section>`;
     root.querySelectorAll("[data-open-wechat]").forEach((button) => button.addEventListener("click", openWechat));
   }
 
   function stepTemplate(step) {
-    const rights = step.rights ? `<div class="rights-strip">${step.rights.map((item) => `<span>${item}</span>`).join("")}</div>` : "";
     return `<article class="process-step">
       <div class="process-no">${step.no}</div>
       <div class="process-copy">
@@ -255,7 +256,6 @@
         <h3>${step.title}</h3>
         <p class="step-statement">${step.statement}</p>
         <p class="step-body">${step.body}</p>
-        ${rights}
       </div>
     </article>`;
   }

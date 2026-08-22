@@ -31,10 +31,10 @@
           <h1 id="hero-title">BAKU</h1>
           <p class="hero-role">
             <span data-i18n="identity.role">独立设计师</span>
-            <small data-i18n="identity.roleEn">INDEPENDENT DESIGNER</small>
+            <small data-i18n="identity.roleEn"></small>
           </p>
           <p class="hero-statement">
-            <span data-i18n="identity.statement">把想法变成体验</span>
+            <span data-i18n-html="identity.statement">把想法变成体验</span>
             <small data-i18n="identity.statementEn">IDEAS INTO EXPERIENCES.</small>
           </p>
         </div>
@@ -58,11 +58,11 @@
         </div>
       </section>
 
-      <section class="find-section" aria-labelledby="find-title">
+      <section class="find-section" id="find-baku" aria-labelledby="find-title">
         <div class="section-grid find-grid">
           <div>
             <p class="outline-label">01 / FIND BAKU</p>
-            <h2 id="find-title" data-i18n-html="find.title">找到<br />BAKU</h2>
+            <h2 id="find-title" data-i18n-html="find.title">找到<br />BAKU.</h2>
             <p class="section-copy" data-i18n="find.copy">如果你有想法、IP、产品方向，或只是想先聊聊，可以从这里找到我。</p>
           </div>
           <div class="find-actions" data-contact-list></div>
@@ -75,13 +75,15 @@
             <p class="outline-label">02 / LIMITED COLLAB / 2026</p>
             <p class="eyebrow" data-i18n="collab.homeName">限时共创计划</p>
             <h2 id="collab-title">BAKU ×<br />DESIGNERS</h2>
-            <p class="manifesto" data-i18n="collab.manifesto">找一些有趣的 IP，一起把它们变成真的。</p>
+            <p class="manifesto" data-i18n-html="collab.manifesto">找一些有趣的 IP，一起把它们变成真的。</p>
           </div>
           <div data-gallery="collab" class="gallery-block large-frame" aria-label="Limited collab gallery"></div>
         </div>
         <a class="full-action" href="/collab/">
-          <span data-i18n="collab.ctaZh">查看完整共创计划</span>
-          <strong>EXPLORE THE COLLAB PLAN</strong>
+          <span class="cta-copy">
+            <span data-i18n="collab.ctaZh">查看完整共创计划</span>
+            <strong>EXPLORE THE COLLAB PLAN</strong>
+          </span>
           <b aria-hidden="true">→</b>
         </a>
       </section>
@@ -94,14 +96,14 @@
 
       <section class="closing-section" aria-labelledby="closing-title">
         <div>
-          <p class="outline-label">04 / 联系 / CONNECT</p>
+          <p class="outline-label" data-i18n="closing.label">04 / 联系 / CONNECT</p>
           <h2 id="closing-title" data-i18n-html="closing.title">有想法？<br />一起做点<br />有意思的。</h2>
           <p data-i18n-html="closing.en">HAVE AN IDEA?<br />LET'S MAKE SOMETHING TOGETHER.</p>
         </div>
-        <button class="full-action closing-action" type="button" data-open-wechat>
-          <span data-i18n="closing.cta">联系 BAKU</span>
+        <a class="full-action closing-action" href="#find-baku">
+          <span class="cta-copy" data-i18n-html="closing.cta">联系<br />BAKU</span>
           <b aria-hidden="true">→</b>
-        </button>
+        </a>
       </section>
 
       <footer class="site-footer">
