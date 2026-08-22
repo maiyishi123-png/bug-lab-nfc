@@ -397,11 +397,16 @@ html:lang(en) .hero-meta dd span {
 .manifesto,
 .project-info p:not(.outline-label),
 .detail-intro,
-.step-statement,
-.step-body,
 .font-intro {
   text-align: justify;
   text-align-last: left;
+}
+
+.step-statement,
+.step-body {
+  text-align: left;
+  text-align-last: auto;
+  word-spacing: normal;
 }
 
 html:lang(en) .section-copy,

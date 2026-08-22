@@ -28,7 +28,6 @@
       label: "KAMABO LAB",
       images: [
         "kamabo-01.png",
-        "kamabo-02.jpg",
         "kamabo-03.jpg",
         "kamabo-04.jpg",
         "kamabo-05.jpg",
@@ -401,7 +400,14 @@
   function updateWechatSheet() {
     const qr = document.querySelector("[data-wechat-qr]");
     const id = document.querySelector("[data-wechat-id]");
-    if (qr) qr.src = profile.contact.wechatQr;
+    if (qr) {
+      qr.src = profile.contact.wechatQr;
+      qr.onerror = () => {
+        if (profile.contact.wechatQrFallback && qr.src !== profile.contact.wechatQrFallback) {
+          qr.src = profile.contact.wechatQrFallback;
+        }
+      };
+    }
     if (id) id.textContent = profile.contact.wechatId;
     const copy = document.querySelector("[data-copy-wechat]");
     if (copy) copy.textContent = locale === "zh" ? "复制微信号" : "COPY ID";

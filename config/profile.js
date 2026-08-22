@@ -8,7 +8,8 @@ window.BAKU_PROFILE = {
   },
   contact: {
     wechatId: "BUG_LAB",
-    wechatQr: "/wechat-qr.svg",
+    wechatQr: "https://baku-assets.oss-cn-guangzhou.aliyuncs.com/baku/wechat-qr.svg",
+    wechatQrFallback: "/wechat-qr.svg",
     whatsappId: "BUG_LAB",
     whatsappUrl: "",
     email: "maiyishi406@gamil.com",
