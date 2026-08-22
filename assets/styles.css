@@ -1083,6 +1083,10 @@ body.debug-grid::before { display: block; }
     margin-top: var(--space-2);
   }
 
+  .project-info p:not(.outline-label) {
+    margin-top: 6px;
+  }
+
   .hero-statement span {
     max-width: none;
     font-size: clamp(3rem, 13vw, 4.1rem);
@@ -1123,7 +1127,7 @@ body.debug-grid::before { display: block; }
 
   .process-step {
     grid-template-columns: auto minmax(0, 1fr);
-    column-gap: 12px;
+    column-gap: 2px;
     row-gap: var(--space-1);
     align-items: baseline;
   }
@@ -1143,6 +1147,12 @@ body.debug-grid::before { display: block; }
     font-size: var(--t3);
     font-weight: 900;
     line-height: 0.9;
+    white-space: nowrap;
+  }
+
+  html:lang(en) .process-copy h3,
+  html:lang(en) .process-no {
+    font-size: clamp(1.45rem, 6.1vw, 2.15rem);
   }
 
   .step-statement,
@@ -1194,6 +1204,10 @@ body.debug-grid::before { display: block; }
 
   .gallery-slide {
     padding-inline: var(--space-3);
+  }
+
+  .project-row {
+    gap: 12px;
   }
 
   .project-gallery {
