@@ -1077,6 +1077,18 @@ body.debug-grid::before { display: block; }
     font-size: clamp(3rem, 17vw, 4.8rem);
   }
 
+  .collab-copy .eyebrow {
+    margin-top: var(--space-3);
+    font-family: var(--font-display-zh);
+    font-size: clamp(2.6rem, 13.5vw, 3.5rem);
+    line-height: 0.98;
+    text-transform: none;
+  }
+
+  .step-statement {
+    margin-top: var(--space-1);
+  }
+
   .platform-action {
     grid-template-columns: 74px minmax(0, 1fr) 42px;
     min-height: 88px;

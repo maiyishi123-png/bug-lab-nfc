@@ -34,7 +34,7 @@ window.BAKU_I18N_ZH = {
     detailIntro: "BAKU想和大家探讨共创互惠方案，目的是让我们的创意都获得更多的展示机会。同时降低IP设计师的开模打样等生产成本，用BAKU擅长的3D打印工艺，达到最小可行性产品。",
     heroMeta: "LIMITED COLLAB / 2026",
     heroSecondary: "BAKU × 你",
-    processTitle: "共创计划<br /><br />7个可行性步骤",
+    processTitle: "共创计划<br />7个可行性步骤",
     processTitleEn: "7-STEP CO-CREATION PROCESS",
     action: "联系 BAKU<br />聊聊共创",
     steps: [
