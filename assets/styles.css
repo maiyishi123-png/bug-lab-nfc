@@ -1100,6 +1100,10 @@ body.debug-grid::before { display: block; }
     display: block;
   }
 
+  .closing-section h2 {
+    max-width: none;
+  }
+
   .gallery-slide {
     padding-inline: var(--space-3);
   }
