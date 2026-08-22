@@ -31,6 +31,7 @@
     document.querySelector("[data-copy-wechat]")?.addEventListener("click", copyWechatId);
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") closeWechat();
+      if (event.key === "Tab") trapSheetFocus(event);
     });
 
     setLocale(locale, false);
@@ -75,6 +76,7 @@
       renderConnect();
       renderCollabTeaser();
       renderWork();
+      renderClosingLinks();
     }
     if (page === "collab") {
       renderCollabDetail();
@@ -142,6 +144,20 @@
     container.innerHTML = accounts.map((account) => workCard(account.key, account.order)).join("");
   }
 
+  function renderClosingLinks() {
+    const container = document.querySelector("[data-closing-links]");
+    if (!container) return;
+    const order = locale === "zh" ? ["wechat", "whatsapp", "email"] : ["whatsapp", "wechat", "email"];
+    container.innerHTML = order.map((type) => {
+      const label = type === "wechat" ? "WECHAT" : type === "whatsapp" ? "WHATSAPP" : "EMAIL";
+      const href = getContactHref(type);
+      if (type === "wechat") return `<button class="quiet-action" type="button" data-open-wechat>${label} →</button>`;
+      if (!href) return `<button class="quiet-action disabled" type="button" disabled aria-disabled="true">${label} →</button>`;
+      return `<a class="quiet-action" href="${escapeAttr(href)}" ${type === "email" ? "" : "target=\"_blank\" rel=\"noopener\""}>${label} →</a>`;
+    }).join("");
+    container.querySelectorAll("[data-open-wechat]").forEach((button) => button.addEventListener("click", openWechat));
+  }
+
   function workCard(key, order) {
     const account = profile.accounts[key];
     const localeData = t(`work.${key}`);
@@ -192,19 +208,51 @@
     root.innerHTML = `
       <section class="collab-hero" aria-labelledby="collab-page-title">
         <p class="index-label">NOW / LIMITED / ${profile.collab.year}</p>
-        <h1 id="collab-page-title">${t("collab.detailTitle")}</h1>
-        <p class="detail-lede">${t("collab.detailIntro")}</p>
+        <div>
+          <p class="section-kicker">${t("collab.heroKicker")}</p>
+          <h1 id="collab-page-title">BAKU ×<br />DESIGNERS</h1>
+          <p class="detail-lede">${t("collab.heroCopy")}</p>
+        </div>
       </section>
-      <section class="detail-grid">
-        ${detailList("collab.bringTitle", "collab.bringItems")}
-        ${detailList("collab.bakuTitle", "collab.bakuItems")}
-        ${detailText("collab.processTitle", "collab.process")}
-        ${detailText("collab.modelTitle", "collab.model")}
-        ${detailText("collab.friendlyTitle", "collab.friendly")}
-        ${detailText("collab.principleTitle", "collab.principle")}
+      <section class="detail-section" aria-labelledby="together-title">
+        <div class="section-head"><p class="index-label">01 / TOGETHER</p><h2 id="together-title">${t("collab.togetherTitle")}</h2></div>
+        <div class="together-graphic">
+          <article class="person-block"><p class="detail-eyebrow">${t("collab.bringTitle")}</p><h3>YOU</h3>${detailList("collab.bringItems")}</article>
+          <div class="multiply" aria-hidden="true">×</div>
+          <article class="person-block"><p class="detail-eyebrow">${t("collab.bakuTitle")}</p><h3>BAKU</h3>${detailList("collab.bakuItems")}</article>
+        </div>
+        <div class="meta-row">${t("collab.togetherBottom")}</div>
+      </section>
+      <section class="detail-section" aria-labelledby="process-title">
+        <div class="section-head"><p class="index-label">02 / PROCESS</p><h2 id="process-title">${t("collab.processHeadline")}</h2></div>
+        <div class="process-path">${processItems().map((item) => `<div class="process-step">${item}</div>`).join("")}</div>
+      </section>
+      <section class="detail-section" aria-labelledby="why-title">
+        <div class="section-head"><p class="index-label">03 / WHY</p><h2 id="why-title">WHY</h2></div>
+        <div class="why-panel">
+          <h3>${t("collab.whyHeadline")}</h3>
+          ${detailList("collab.whyItems")}
+          <p>${t("collab.whyCopy")}</p>
+        </div>
+      </section>
+      <section class="detail-section" aria-labelledby="model-title">
+        <div class="section-head"><p class="index-label">04 / MODEL</p><h2 id="model-title">${t("collab.modelTitle")}</h2></div>
+        <div class="model-panel">
+          <ul class="detail-list">${modelItems().map((item) => `<li>${item}</li>`).join("")}</ul>
+          <p>${t("collab.modelCopy")}</p>
+        </div>
+      </section>
+      <section class="detail-section principle-block" aria-labelledby="principle-title">
+        <div class="section-head"><p class="index-label">05 / PRINCIPLE</p><h2 id="principle-title">${t("collab.principleTitle")}</h2></div>
+        <div>
+          <p class="principle-title">${t("collab.principleBig")}</p>
+          <p class="principle-copy">${t("collab.principle")}</p>
+        </div>
       </section>
       <section class="detail-end">
-        <p class="detail-ending">${t("collab.ending")}</p>
+        <p class="index-label">06 / START</p>
+        <p class="detail-ending">${t("collab.startTitle")}</p>
+        <p class="detail-lede">${t("collab.startCopy")}</p>
         <button class="primary-action" type="button" data-collab-contact>${t("collab.action")}</button>
       </section>`;
     root.querySelector("[data-collab-contact]")?.addEventListener("click", () => {
@@ -214,20 +262,16 @@
     });
   }
 
-  function detailList(titlePath, itemsPath) {
-    return `<article class="detail-block">
-      <span>${titlePath.split(".").pop()}</span>
-      <h2>${t(titlePath)}</h2>
-      <ul class="detail-list">${t(itemsPath).map((item) => `<li>${item}</li>`).join("")}</ul>
-    </article>`;
+  function detailList(itemsPath) {
+    return `<ul class="detail-list">${t(itemsPath).map((item) => `<li>${item}</li>`).join("")}</ul>`;
   }
 
-  function detailText(titlePath, bodyPath) {
-    return `<article class="detail-block">
-      <span>${titlePath.split(".").pop()}</span>
-      <h2>${t(titlePath)}</h2>
-      <p>${t(bodyPath)}</p>
-    </article>`;
+  function processItems() {
+    return t("collab.process").split(" → ");
+  }
+
+  function modelItems() {
+    return t("collab.model").split(" / ");
   }
 
   function updateWechatSheet() {
@@ -259,8 +303,27 @@
     lastFocus?.focus?.();
   }
 
+  function trapSheetFocus(event) {
+    const layer = document.querySelector("[data-sheet-layer]");
+    if (!layer?.classList.contains("open")) return;
+    const focusables = [...layer.querySelectorAll("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])")]
+      .filter((node) => !node.disabled && node.offsetParent !== null);
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
   async function copyWechatId() {
-    await navigator.clipboard.writeText(profile.contact.wechatId);
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(profile.contact.wechatId);
+    }
     document.querySelector("[data-copy-feedback]").textContent = t("connect.copied");
   }
 

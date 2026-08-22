@@ -42,6 +42,18 @@ window.BAKU_I18N_EN = {
     friendly: "Small batches, fast testing, flexible production, and co-selling can lower the risk of a first physical-product experiment. It is not zero cost, and it is not zero risk.",
     ending: "LET'S MAKE SOMETHING<br />PEOPLE WANT TO TOUCH.",
     action: "LET'S COLLABORATE →",
+    heroKicker: "DESIGNER-TO-DESIGNER COLLABORATION",
+    heroCopy: "Turn interesting IP into physical experiences people can touch, play with, and remember.",
+    togetherTitle: "TOGETHER",
+    togetherBottom: "WE MAKE IT REAL.",
+    processHeadline: "HOW WE MAKE IT",
+    whyHeadline: "START SMALL.<br />MAKE FAST.<br />GROW TOGETHER.",
+    whyItems: ["Small batch", "Fast test", "Low MOQ", "Low inventory", "Flexible production", "Co-sell"],
+    whyCopy: "You should not need high sampling costs, large MOQ, heavy inventory, and a long development cycle just to test one physical-product idea.",
+    modelCopy: "The commercial model is decided project by project. It can be co-selling, revenue share, small-batch wholesale, limited release, offline event, or joint launch.",
+    principleBig: "YOUR IP<br /><em>STAYS YOURS.</em>",
+    startTitle: "GOT AN IDEA?<br />LET'S MAKE IT REAL.",
+    startCopy: "If you have something you have always wanted to make physical, let's talk.",
   },
   work: {
     title: "MY WORK",
@@ -59,5 +71,10 @@ window.BAKU_I18N_EN = {
   },
   footer: {
     location: "GUANGZHOU / CHINA",
+  },
+  closing: {
+    title: "HAVE AN IDEA?<br />LET'S MAKE SOMETHING TOGETHER.",
+    copy: "If there is an idea worth making real, say hello.",
+    meta: "OPEN TO / COLLABORATION · PRODUCT · IP · EXPERIENCE · WEIRD IDEAS",
   },
 };

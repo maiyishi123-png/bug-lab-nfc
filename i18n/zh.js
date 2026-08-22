@@ -42,6 +42,18 @@ window.BAKU_I18N_ZH = {
     friendly: "用小批量、快速测试、灵活生产和共同销售，降低第一次尝试实体产品的风险。不承诺零成本，也不承诺零风险。",
     ending: "LET'S MAKE SOMETHING<br />PEOPLE WANT TO TOUCH.",
     action: "LET'S COLLABORATE →",
+    heroKicker: "DESIGNER-TO-DESIGNER COLLABORATION",
+    heroCopy: "一起把有趣的 IP，变成可以触摸、可以互动的实体体验。",
+    togetherTitle: "TOGETHER",
+    togetherBottom: "一起把它做出来。",
+    processHeadline: "HOW WE MAKE IT",
+    whyHeadline: "START SMALL.<br />MAKE FAST.<br />GROW TOGETHER.",
+    whyItems: ["小批量", "快速测试", "低起订", "减少库存压力", "灵活生产", "共同销售"],
+    whyCopy: "不需要为了验证一个产品概念，一开始就承担高额打样、大量 MOQ、大量库存和漫长开发周期。",
+    modelCopy: "合作方式不预设唯一模式，根据项目具体协商。可以是共同销售、分佣、小批量拿货、限定发售、线下活动或联合发布。",
+    principleBig: "IP 仍然属于<br /><em>它的创作者。</em>",
+    startTitle: "GOT AN IDEA?<br />LET'S MAKE IT REAL.",
+    startCopy: "有一个一直想做成实体的想法？来聊聊。",
   },
   work: {
     title: "我的创作",
@@ -59,5 +71,10 @@ window.BAKU_I18N_ZH = {
   },
   footer: {
     location: "广州 / 中国",
+  },
+  closing: {
+    title: "HAVE AN IDEA?<br />LET'S MAKE SOMETHING TOGETHER.",
+    copy: "有想法的话，来聊聊。",
+    meta: "OPEN TO / 共创 · 产品 · IP · 体验 · 有趣的脑洞",
   },
 };
