@@ -207,7 +207,7 @@
     }
     return `<article class="gallery-slide gallery-image-slide">
       <figure class="gallery-image-frame">
-        <img src="${escapeAttr(resolveImageUrl(image))}" alt="${escapeAttr(data.label)} work ${pad(no)}" loading="lazy" decoding="async" />
+        <img src="${escapeAttr(resolveImageUrl(image))}" data-fallback-src="${escapeAttr(localImageUrl(image))}" alt="${escapeAttr(data.label)} work ${pad(no)}" loading="lazy" decoding="async" />
       </figure>
     </article>`;
   }
@@ -215,6 +215,11 @@
   function resolveImageUrl(image) {
     if (/^https?:\/\//.test(image)) return image;
     return `${imageBaseUrl}${image}`;
+  }
+
+  function localImageUrl(image) {
+    if (/^https?:\/\//.test(image)) return image;
+    return `/assets/images/${image}`;
   }
 
   function wireGallery(root, total) {
@@ -239,6 +244,12 @@
       if (event.key === "ArrowRight") move(1);
     });
     track.querySelectorAll("img").forEach((image) => {
+      image.addEventListener("error", () => {
+        const fallback = image.dataset.fallbackSrc;
+        if (fallback && image.src !== new URL(fallback, window.location.href).href) {
+          image.src = fallback;
+        }
+      });
       image.addEventListener("load", update, { once: true });
     });
     update();
