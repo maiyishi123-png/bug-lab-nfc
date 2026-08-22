@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BUG LAB - BAKU 数字身份页</title>
+    <meta name="description" content="BAKU 是一名独立设计师，创作 3D 打印实体产品、按压交互玩具和有点奇怪的产品实验。" />
+    <meta property="og:title" content="BUG LAB - I MAKE WEIRD THINGS." />
+    <meta property="og:description" content="BAKU 的 NFC 数字身份页：3D 打印实体产品、按压交互玩具和产品实验。" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style>
+      :root {
+        --background: #f7f4ec;
+        --foreground: #111211;
+        --muted: #696b63;
+        --border: #1b1c19;
+        --accent: #d9ff3f;
+        --surface: #fffdf6;
+        --surface-2: #dfe7e3;
+        --blueprint: #2344d8;
+        --shadow: 8px 8px 0 #111211;
+        --space-sm: 10px;
+        --space-md: 16px;
+        --space-lg: 24px;
+        --space-xl: 40px;
+      }
+      * { box-sizing: border-box; }
+      html { background: var(--background); color: var(--foreground); }
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background:
+          linear-gradient(rgba(17, 18, 17, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(17, 18, 17, 0.045) 1px, transparent 1px),
+          var(--background);
+        background-size: 22px 22px;
+        font-family: Arial, Helvetica, "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+      }
+      body.sheet-open { overflow: hidden; }
+      button, a { -webkit-tap-highlight-color: rgba(217, 255, 63, 0.38); color: inherit; font: inherit; }
+      a { text-decoration: none; }
+      button { cursor: pointer; }
+      .page { width: min(100%, 1180px); margin: 0 auto; padding: var(--space-md); }
+      .hero {
+        min-height: min(680px, calc(100svh - 28px));
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: var(--space-md);
+        border: 2px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+      .meta, .identity, .label, .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-sm);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+      .meta span, .label span, .footer span {
+        padding: 7px 8px;
+        border: 1px solid var(--border);
+        background: var(--background);
+      }
+      .brand { align-self: center; margin: var(--space-xl) 0; }
+      .brand-badge {
+        width: fit-content;
+        margin: 0 0 var(--space-md);
+        padding: 7px 9px;
+        background: var(--accent);
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 1;
+      }
+      h1 {
+        max-width: 10ch;
+        margin: 0;
+        font-size: clamp(58px, 18vw, 136px);
+        font-weight: 900;
+        line-height: 0.86;
+        text-transform: uppercase;
+        white-space: pre-line;
+      }
+      .hero-zh {
+        max-width: 26em;
+        margin: var(--space-lg) 0 0;
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 1.45;
+      }
+      .identity { align-items: flex-end; color: var(--foreground); font-size: 16px; }
+      .identity strong { font-size: 28px; font-weight: 900; }
+      .identity span:last-child { display: grid; justify-items: end; gap: 5px; text-align: right; }
+      .identity small { max-width: 18em; color: var(--muted); font-size: 12px; font-weight: 800; line-height: 1.35; }
+      section, .footer { margin-top: 64px; }
+      .social-hub { display: grid; gap: var(--space-md); }
+      .social-head { display: grid; gap: var(--space-sm); margin-top: var(--space-sm); }
+      .social-head h2, .social-head p { margin: 0; }
+      .social-head h2 { font-size: clamp(30px, 9vw, 72px); font-weight: 900; line-height: 1; }
+      .social-head p { max-width: 620px; color: var(--muted); font-size: 14px; font-weight: 700; line-height: 1.45; }
+      .social-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-sm); }
+      .social-card {
+        display: grid;
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: var(--space-sm);
+        min-height: 76px;
+        align-items: center;
+        padding: var(--space-sm);
+        border: 2px solid var(--border);
+        background: var(--surface);
+        text-align: left;
+        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      }
+      .social-card:hover, .social-card:focus-visible { background: var(--accent); box-shadow: 4px 4px 0 var(--foreground); transform: translate(-2px, -2px); }
+      .mark {
+        display: grid;
+        width: 46px;
+        height: 46px;
+        place-items: center;
+        border: 2px solid var(--border);
+        background: var(--foreground);
+        color: var(--background);
+        font-size: 13px;
+        font-weight: 900;
+      }
+      .wx { background: #19c160; color: #05140a; }
+      .red { background: #ff2442; color: #fff; }
+      .ig { background: #f05a28; color: #fff; }
+      .mw { background: var(--blueprint); color: #fff; }
+      .social-text { display: grid; min-width: 0; gap: 4px; }
+      .social-text span:first-child { overflow: hidden; font-size: 13px; font-weight: 900; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+      .social-text span:last-child { overflow: hidden; color: var(--muted); font-size: 11px; font-weight: 800; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+      .object-grid { display: grid; gap: 34px; margin-top: var(--space-md); }
+      .object { display: grid; gap: var(--space-sm); }
+      .placeholder {
+        display: grid;
+        aspect-ratio: 4 / 5;
+        place-items: center;
+        padding: var(--space-md);
+        border: 2px solid var(--border);
+        background: var(--surface-2);
+      }
+      .object:nth-child(even) .placeholder { aspect-ratio: 1 / 1; }
+      .sample {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        align-content: space-between;
+        border: 4px solid var(--border);
+        padding: var(--space-lg);
+        background: var(--surface);
+        font-weight: 900;
+      }
+      .sample strong { font-size: clamp(34px, 9vw, 64px); line-height: 0.95; }
+      .caption { display: grid; grid-template-columns: 92px 1fr; column-gap: var(--space-md); row-gap: 2px; align-items: baseline; }
+      .caption span { color: var(--blueprint); font-size: 11px; font-weight: 900; }
+      .caption h3, .caption p { margin: 0; }
+      .caption h3 { font-size: 22px; line-height: 1; text-transform: uppercase; }
+      .caption p { grid-column: 2; color: var(--muted); font-size: 13px; font-weight: 700; line-height: 1.45; }
+      .about-connect { display: grid; gap: var(--space-xl); }
+      .about p { margin: var(--space-lg) 0; font-size: clamp(26px, 8vw, 62px); font-weight: 900; line-height: 1.08; }
+      .about .en { max-width: 700px; margin-top: calc(var(--space-lg) * -0.45); color: var(--muted); font-size: 16px; font-weight: 800; line-height: 1.45; }
+      .tags { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: 0; padding: 0; list-style: none; }
+      .tags li { padding: 8px 10px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: 12px; font-weight: 800; }
+      .wechat-button, .copy-button {
+        min-height: 58px;
+        border: 2px solid var(--border);
+        background: var(--foreground);
+        color: var(--background);
+        font-weight: 900;
+      }
+      .wechat-button { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--space-md); font-size: 18px; }
+      .wechat-button span:last-child { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid currentColor; font-size: 24px; }
+      .footer { padding-bottom: var(--space-lg); }
+      .sheet-layer { position: fixed; inset: 0; z-index: 20; display: none; align-items: end; padding: var(--space-md); background: rgba(17, 18, 17, 0.48); }
+      .sheet-layer.open { display: grid; }
+      .sheet {
+        width: min(100%, 520px);
+        margin: 0 auto;
+        padding: var(--space-md);
+        border: 2px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+      .close { display: block; margin-left: auto; padding: 9px 10px; border: 1px solid var(--border); background: transparent; font-size: 12px; font-weight: 900; text-transform: uppercase; }
+      .qr { display: grid; width: min(62vw, 260px); aspect-ratio: 1 / 1; place-items: center; margin: var(--space-md) auto; border: 2px solid var(--border); background: #fff; font-size: 28px; font-weight: 900; text-align: center; }
+      .sheet p, .sheet dl, .sheet dd { margin: 0; }
+      .sheet p { font-size: 21px; font-weight: 900; }
+      .sheet dl { display: grid; grid-template-columns: 88px 1fr; gap: var(--space-sm); align-items: center; margin: var(--space-md) 0; }
+      .sheet dt { color: var(--muted); font-size: 12px; font-weight: 900; }
+      .sheet dd { overflow-wrap: anywhere; font-size: 20px; font-weight: 900; }
+      .copy-button { width: 100%; padding: 0 var(--space-md); text-align: center; }
+      @media (min-width: 700px) {
+        .page { padding: var(--space-lg); }
+        .hero { min-height: min(720px, calc(100svh - 48px)); padding: var(--space-lg); }
+        .social-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .object-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+        .object:nth-child(2n) { margin-top: 80px; }
+        .about-connect { grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr); align-items: start; }
+      }
+      @media (min-width: 1040px) {
+        .page { padding: 32px; }
+        .hero { min-height: 700px; }
+        .social-hub { grid-template-columns: minmax(0, 0.85fr) minmax(520px, 1.15fr); align-items: end; }
+        .social-hub .label, .social-head { grid-column: 1; }
+        .social-grid { grid-column: 2; grid-row: 1 / span 2; }
+        .object-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .object:nth-child(2n) { margin-top: 108px; }
+        .caption { grid-template-columns: 1fr; }
+        .caption p { grid-column: auto; }
+      }
+      @media (max-width: 380px) {
+        .page { padding: 10px; }
+        .hero { min-height: calc(100svh - 20px); box-shadow: 5px 5px 0 #111211; }
+        h1 { font-size: 52px; }
+        .identity { display: grid; align-items: start; }
+        .identity span:last-child { justify-items: start; text-align: left; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="meta"><span>NFC / DIGITAL ID</span><span>2026</span></div>
+        <div class="brand">
+          <p class="brand-badge">BUG LAB</p>
+          <h1>I MAKE
+WEIRD THINGS.</h1>
+          <p class="hero-zh">我做一些有点奇怪、但真的可以拿在手里的东西。</p>
+        </div>
+        <div class="identity"><strong>BAKU</strong><span>Independent Designer<small>独立设计师 / 3D 打印实体产品实验</small></span></div>
+      </section>
+      <section class="social-hub">
+        <div class="label"><span>SOCIAL HOMEBASE</span><span>TAP / FOLLOW / ADD</span></div>
+        <div class="social-head">
+          <h2>找到 BAKU / Find BAKU.</h2>
+          <p>加微信、看小红书 / 抖音，或者去 Instagram、TikTok、MakerWorld 找到更多作品。</p>
+        </div>
+        <div class="social-grid">
+          <button class="social-card" type="button" data-open-wechat><span class="mark wx">WX</span><span class="social-text"><span>WeChat</span><span>PLACEHOLDER</span></span></button>
+          <a class="social-card" href="https://example.com/xiaohongshu"><span class="mark red">RED</span><span class="social-text"><span>Xiaohongshu</span><span>PLACEHOLDER</span></span></a>
+          <a class="social-card" href="https://example.com/douyin"><span class="mark">♪</span><span class="social-text"><span>Douyin</span><span>PLACEHOLDER</span></span></a>
+          <a class="social-card" href="https://example.com/instagram"><span class="mark ig">IG</span><span class="social-text"><span>Instagram</span><span>@placeholder</span></span></a>
+          <a class="social-card" href="https://example.com/tiktok"><span class="mark">TK</span><span class="social-text"><span>TikTok</span><span>@placeholder</span></span></a>
+          <a class="social-card" href="https://example.com/makerworld"><span class="mark mw">MW</span><span class="social-text"><span>MakerWorld</span><span>BUG LAB</span></span></a>
+        </div>
+      </section>
+      <section>
+        <div class="label"><span>SELECTED OBJECTS</span><span>003-006 SAMPLES</span></div>
+        <div class="object-grid">
+          <article class="object"><div class="placeholder"><div class="sample"><span>BUG LAB SAMPLE</span><strong>OBJECT 001</strong><span>Fruit Clicker</span></div></div><div class="caption"><span>OBJECT 001</span><h3>Fruit Clicker</h3><p>水果按按乐 / 按压交互 / 解压玩具</p></div></article>
+          <article class="object"><div class="placeholder"><div class="sample"><span>BUG LAB SAMPLE</span><strong>OBJECT 002</strong><span>The Scream Clicker</span></div></div><div class="caption"><span>OBJECT 002</span><h3>The Scream Clicker</h3><p>呐喊按按乐 / 按压交互实验</p></div></article>
+          <article class="object"><div class="placeholder"><div class="sample"><span>BUG LAB SAMPLE</span><strong>OBJECT 003</strong><span>BAKU</span></div></div><div class="caption"><span>OBJECT 003</span><h3>BAKU</h3><p>BAKU 实体样本 / 3D 打印物件</p></div></article>
+          <article class="object"><div class="placeholder"><div class="sample"><span>BUG LAB SAMPLE</span><strong>OBJECT 004</strong><span>Desk Sample</span></div></div><div class="caption"><span>OBJECT 004</span><h3>Desk Sample</h3><p>桌面样本 / 产品实验</p></div></article>
+        </div>
+      </section>
+      <section class="about-connect">
+        <div class="about">
+          <div class="label"><span>ABOUT</span><span>BUG LAB / FIELD NOTE</span></div>
+          <p>BAKU 是一名独立设计师，主要通过 3D 打印、数字制造和产品实验，创作有趣的小型实体物件。</p>
+          <p class="en">BAKU is an independent designer creating playful physical objects through 3D printing, digital fabrication and experimentation.</p>
+          <ul class="tags"><li>3D 打印实体产品</li><li>按压 / 交互玩具</li><li>AI + 3D Design</li><li>独立创作者产品</li></ul>
+        </div>
+        <div>
+          <div class="label"><span>CONNECT</span><span>FAST CONTACT</span></div>
+          <button class="wechat-button" type="button" data-open-wechat><span>添加微信 / ADD WECHAT</span><span>+</span></button>
+        </div>
+      </section>
+      <footer class="footer"><span>BUG LAB</span><span>NFC IDENTITY PAGE</span></footer>
+    </main>
+    <div class="sheet-layer" id="wechat-sheet">
+      <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="wechat-title">
+        <button class="close" type="button" data-close-wechat>Close</button>
+        <div class="qr">WECHAT QR<br />PLACEHOLDER</div>
+        <p id="wechat-title">添加微信 / ADD WECHAT</p>
+        <dl><dt>微信号</dt><dd id="wechat-id">PLACEHOLDER</dd></dl>
+        <button class="copy-button" type="button" data-copy-wechat>复制微信号 / COPY WECHAT ID</button>
+      </section>
+    </div>
+    <script>
+      const sheet = document.querySelector("#wechat-sheet");
+      const copy = document.querySelector("[data-copy-wechat]");
+      const id = document.querySelector("#wechat-id").textContent;
+      function openSheet() { sheet.classList.add("open"); document.body.classList.add("sheet-open"); }
+      function closeSheet() { sheet.classList.remove("open"); document.body.classList.remove("sheet-open"); }
+      document.querySelectorAll("[data-open-wechat]").forEach((button) => button.addEventListener("click", openSheet));
+      document.querySelector("[data-close-wechat]").addEventListener("click", closeSheet);
+      sheet.addEventListener("click", (event) => { if (event.target === sheet) closeSheet(); });
+      window.addEventListener("keydown", (event) => { if (event.key === "Escape") closeSheet(); });
+      copy.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(id);
+          copy.textContent = "已复制 / COPIED";
+          setTimeout(() => { copy.textContent = "复制微信号 / COPY WECHAT ID"; }, 1800);
+        } catch {}
+      });
+    </script>
+  </body>
+</html>
