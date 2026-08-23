@@ -98,7 +98,7 @@ window.BAKU_I18N_EN = {
       kamabo: {
         label: "01 / KAMABO LAB",
         title: "KAMABO LAB",
-        description: "Original IP, characters, products, and object experiments. A record of how characters move from flat visuals into physical objects, packaging, and daily use.",
+        description: "IP, character merchandise extensions, products, and object experiments. A record of how characters move from flat visuals into physical objects, packaging, and daily use.",
       },
       buglab: {
         label: "02 / BUG LAB",

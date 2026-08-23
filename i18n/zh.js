@@ -98,7 +98,7 @@ window.BAKU_I18N_ZH = {
       kamabo: {
         label: "01 / KAMABO LAB",
         title: "KAMABO LAB",
-        description: "原创 IP、角色、产品与物件实验。关注角色如何从平面进入实体、包装和日常使用场景。",
+        description: "IP、角色周边延展产品与物件实验。关注角色如何从平面进入实体、包装和日常使用场景。",
       },
       buglab: {
         label: "02 / BUG LAB",
