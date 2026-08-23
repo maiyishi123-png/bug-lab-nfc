@@ -2,6 +2,8 @@ window.BAKU_I18N_EN = {
   seo: {
     title: "BAKU - Ideas Come Alive Through Experience",
     description: "BAKU is an independent designer based in Guangzhou, focused on product design, 3D printing, physical creation, experience, and IP co-creation.",
+    tobTitle: "BAKU - ToB Showcase",
+    tobDescription: "BAKU is an independent designer based in Guangzhou, focused on product design, 3D printing, physical making, and experience design.",
   },
   identity: {
     role: "INDEPENDENT DESIGNER",

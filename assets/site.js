@@ -91,7 +91,7 @@
       button.setAttribute("aria-pressed", active ? "true" : "false");
     });
     renderStaticText();
-    if (page === "home") renderHome();
+    if (page === "home" || page === "tob") renderHome();
     if (page === "collab") renderCollabDetail();
     updateWechatSheet();
     updateSeo();
@@ -122,8 +122,8 @@
   }
 
   function updateSeo() {
-    const title = page === "collab" ? `${t("collab.detailTitle")} - BAKU` : t("seo.title");
-    const description = page === "collab" ? t("collab.detailIntro") : t("seo.description");
+    const title = page === "collab" ? `${t("collab.detailTitle")} - BAKU` : page === "tob" ? t("seo.tobTitle") : t("seo.title");
+    const description = page === "collab" ? t("collab.detailIntro") : page === "tob" ? t("seo.tobDescription") : t("seo.description");
     document.title = title;
     setMeta("description", description);
     setMeta("og:title", title, true);

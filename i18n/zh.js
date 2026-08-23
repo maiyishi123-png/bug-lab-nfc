@@ -2,6 +2,8 @@ window.BAKU_I18N_ZH = {
   seo: {
     title: "BAKU - 把想法变成体验",
     description: "BAKU 是位于广州的独立设计师，专注产品设计、3D 打印、实体创造、体验与 IP 共创。",
+    tobTitle: "BAKU - ToB 展示",
+    tobDescription: "BAKU 是位于广州的独立设计师，专注产品设计、3D 打印、实体创造与体验设计。",
   },
   identity: {
     role: "独立设计师",
