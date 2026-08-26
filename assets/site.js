@@ -266,7 +266,8 @@
   function renderWork() {
     const container = document.querySelector("[data-work-list]");
     if (!container) return;
-    container.innerHTML = ["kamabo", "buglab"].map(workProject).join("");
+    const projects = page === "tob" ? ["buglab"] : ["kamabo", "buglab"];
+    container.innerHTML = projects.map(workProject).join("");
     container.querySelectorAll("[data-gallery]").forEach((root) => renderGallery(root, root.dataset.gallery));
     scheduleFitText();
   }

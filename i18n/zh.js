@@ -12,7 +12,7 @@ window.BAKU_I18N_ZH = {
     statementEn: "",
     meta: {
       specialized: { label: "专注方向", value: "3D 打印 · 实体创造" },
-      exploring: { label: "正在探索", value: "交互 · 体验<br />主题体验 · 共创" },
+      exploring: { label: "正在探索", value: "交互 · 体验<br />主题系列 · 共创" },
       base: { label: "所在地", value: "广州 · 中国" },
       chain: { label: "全链路", value: "设计 → 生产 → 市场" },
     },

@@ -12,7 +12,7 @@ window.BAKU_I18N_EN = {
     statementEn: "",
     meta: {
       specialized: { label: "FOCUS", value: "3D PRINTING · PHYSICAL CREATION" },
-      exploring: { label: "EXPLORING", value: "INTERACTION · EXPERIENCE<br />THEMATIC EXPERIENCES · CO-CREATION" },
+      exploring: { label: "EXPLORING", value: "INTERACTION · EXPERIENCE<br />THEMATIC SERIES · CO-CREATION" },
       base: { label: "BASE", value: "GUANGZHOU · CHINA" },
       chain: { label: "END-TO-END", value: "DESIGN → PRODUCTION → MARKET" },
     },
